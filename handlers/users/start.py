@@ -106,7 +106,7 @@ async def final_step(message: types.Message, state: FSMContext):
                   f"<b>Telefon raqami:</b> {data['phone']}\n"
                   f"<b>Manzil:</b> {data['address']}\n"
                    f"<b>Ta'lim yo'nalishi:</b> {data['profession']}\n")
-        await message.answer(f"<b>Sizning ma'lumotlaringiz nadminga yuborildi:</b>\n"
+        await message.answer(f"<b>Sizning ma'lumotlaringiz Adminga yuborildi:</b>\n"
                              f"<b>Ismingiz:</b> {data['first_name']}\n"
                              f"<b>Familiyangiz:</b> {data['last_name']}\n"
                              f"<b>Telefon raqamingiz:</b> {data['phone']}\n"
