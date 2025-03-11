@@ -1,6 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.builtin import CommandStart
+from aiogram.types import ReplyKeyboardRemove
 
 from data.config import ADMINS
 from keyboards.default.users import Contact, profession, choices
@@ -111,8 +112,10 @@ async def final_step(message: types.Message, state: FSMContext):
                              f"<b>Familiyangiz:</b> {data['last_name']}\n"
                              f"<b>Telefon raqamingiz:</b> {data['phone']}\n"
                              f"<b>Sizning manzilingiz:</b> {data['address']}\n"
-                             f"<b>Ta'lim yo'nalishingiz:</b> {data['profession']}\n")
+                             f"<b>Ta'lim yo'nalishingiz:</b> {data['profession']}\n",
+                             reply_markup=ReplyKeyboardRemove())
         await bot.send_message(ADMINS[0], result)
+        await state.finish()
     elif user_choice == "🔄 Qayta yozish":
         await message.answer(f"<b>Assalomu alaykum ismingizni kiriting...</b>")
         await Registr.first_name.set()
